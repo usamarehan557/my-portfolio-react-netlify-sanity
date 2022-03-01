@@ -1,6 +1,8 @@
 import React, {useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import sanityClient from "../client";
+import background from "../wallpaper4.gif";
+
 
 export default function Post() {
     const [postData, setPost] = useState(null);
@@ -23,7 +25,12 @@ export default function Post() {
     }, []);
 
     return (
-        <main className="bg-green-100 min-h-screen p-12">
+        <main>
+            <img 
+                src={background}
+                alt="about me"
+                className="absolute object-cover w-full h-full"
+            />
             <section className="container mx-auto">
                 <h1 className="text-5xl flex justify-center cursive">Blog Post Page</h1>
                 <h2 className="text-lg text-grey-600 flex justify-center mb-12">Welcome to my blogs</h2>

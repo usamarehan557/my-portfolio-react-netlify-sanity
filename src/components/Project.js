@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import sanityClient from "../client";
+import background from "../wallpaper4.gif";
 
 export default function Project() {
     const [projectData, setProjectData] = useState(null);
@@ -10,14 +11,19 @@ export default function Project() {
             date,
             place,
             description,
-            project,
+            projectType,
             link,
             tags,
         }`).then((data) => setProjectData(data))
         .catch(console.error);
     }, []);
     return (
-        <main className="bg-green-100 min-h-screen p-12">
+        <main className="bg-scroll object-contain w-full" style={{ backgroundImage: `url(${background})` }}>
+            {/* <img 
+                src={background}
+                alt="about me"
+                className="absolute bg-scroll object-cover w-full h-full"
+            /> */}
             <section className=" container mx-auto">
                 <h1 className="text-5xl flex justify-center cursive">Projects Page</h1>
                 <h2 className="text-lg text-grey-600 flex justify-center mb-12">Welcome to my Projects Page</h2>
@@ -28,8 +34,8 @@ export default function Project() {
                             <a
                               href={project.link}
                               alt={project.title}
+                              rel="noreferrer noopener"
                               target="_blank"
-                              rel="norefferrer"
                             >{project.title}</a>
                         </h3>
                         <div className="text-gray-500 text-xs space-x-4">
@@ -50,11 +56,11 @@ export default function Project() {
                             </p>
                             <a 
                                 href={project.link} 
+                                rel="noreferrer noopener"
                                 target="_blank"
-                                rel="norefferrer"
                                 className="text-red-500 font-bold hover:underline hover:text-red-400 text-xl">
                                 View the Project{" "}
-                                <span role="img" aria-label="right pointer"> {'->'}</span>
+                                <span role="img" aria-label="right pointer"> {'>>>'}</span>
                             </a>
                             <span></span>
                         </div>
